@@ -3,5 +3,14 @@ import Document from 'components/layout/Document.astro';
 ---
 
 <Document>
-    <slot />
+    <main>
+        <slot />
+    </main>
 </Document>
+
+<style lang="scss">
+    main {
+        display: flex;
+        justify-content: center;
+    }
+</style>

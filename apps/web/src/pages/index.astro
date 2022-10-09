@@ -1,13 +1,19 @@
 ---
 import type { Response } from '@app/models';
+
 import fetch from 'node-fetch';
-import { Button } from '@app/ui';
+
+import { Card } from '@app/ui';
 import Layout from 'components/layout/Layout.astro';
+
 const response = await fetch('http://localhost:8080/api/ping');
 const result = (await response.json()) as Response<string>;
+console.log(result.success ? result.data : result.error);
 ---
 
 <Layout>
-  <Button />
-  <p>{result.success ? result.data : result.error}</p>
+  <Card client:load title='Hello, monoplate!'>
+    <p>You have successfully launched the web app!</p>
+    <p>Ping results: {result.success ? result.data : result.error}</p>
+  </Card>
 </Layout>
