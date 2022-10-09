@@ -2,9 +2,14 @@ import { defineConfig } from 'rollup';
 import typescript from '@rollup/plugin-typescript';
 import postcss from 'rollup-plugin-postcss';
 import autoprefixer from 'autoprefixer';
+import pkg from './package.json';
 
 export default defineConfig({
-  external: ['react/jsx-runtime'],
+  external: [
+    'react/jsx-runtime',
+    ...Object.keys(pkg.dependencies),
+    ...Object.keys(pkg.devDependencies),
+  ],
   input: 'src/index.tsx',
   output: {
     inlineDynamicImports: true,
