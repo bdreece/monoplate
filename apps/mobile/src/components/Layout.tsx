@@ -1,18 +1,13 @@
 import type { FC } from 'react';
 
+import styles from '../styles/Layout.module.scss';
+
 type LayoutProps = {
   children?: string | JSX.Element | JSX.Element[];
 };
 
 const Layout: FC<LayoutProps> = ({ children }) => (
-  <main
-    style={{
-      display: 'flex',
-      justifyContent: 'center',
-    }}
-  >
-    {children}
-  </main>
+  <main className={styles.main}>{children}</main>
 );
 
 export default Layout;

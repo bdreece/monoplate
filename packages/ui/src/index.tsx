@@ -1,1 +1,2 @@
-export { default as Card } from './components/Card';
+export type { Children } from './types';
+export { Card, Accordion } from './components';

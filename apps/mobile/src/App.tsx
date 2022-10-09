@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import type { Response } from '@app/models';
 
 import { useQuery } from 'react-query';
-import { Card } from '@app/ui';
+import { Card, Accordion } from '@app/ui';
 import Layout from './components/Layout';
 
 const ping = async () => {
@@ -18,8 +18,9 @@ const App: FC = () => {
   return (
     <Layout>
       <Card title='Hello, monoplate!'>
-        <p>You have successfully launched the mobile app!</p>
-        <p>{`Ping results: ${error ?? message ?? 'Loading...'}`}</p>
+        <Accordion title='You have successfully launched the mobile app!'>
+          <p>{`Ping results: ${error ?? message ?? 'Loading...'}`}</p>
+        </Accordion>
       </Card>
     </Layout>
   );

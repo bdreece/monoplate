@@ -3,17 +3,19 @@ import type { Response } from '@app/models';
 
 import fetch from 'node-fetch';
 
-import { Card } from '@app/ui';
+import { Card, Accordion } from '@app/ui';
 import Layout from 'components/layout/Layout.astro';
 
 const response = await fetch('http://localhost:8080/api/ping');
 const result = (await response.json()) as Response<string>;
-console.log(result.success ? result.data : result.error);
+const text = result.success ? result.data : result.error;
+console.log(text);
 ---
 
 <Layout>
   <Card client:load title='Hello, monoplate!'>
-    <p>You have successfully launched the web app!</p>
-    <p>Ping results: {result.success ? result.data : result.error}</p>
+    <Accordion title='You have successfully launched the web app!'>
+      <p>Ping results: {text}</p>
+    </Accordion>
   </Card>
 </Layout>

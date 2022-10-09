@@ -3,6 +3,7 @@
 .card {
   @include box(column, $gap: 1rem);
   max-width: 60vw;
+  max-height: 60vh;
   margin-top: 3rem;
   padding: 1rem;
   background-color: $white;

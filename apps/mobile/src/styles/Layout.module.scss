@@ -1,0 +1,11 @@
+@use 'helpers' as *;
+
+.main {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  @include box($justify: center);
+  background-color: $white;
+}
