@@ -1,0 +1,13 @@
+---
+import type { Response } from '@app/models';
+import fetch from 'node-fetch';
+import { Button } from '@app/ui';
+import Layout from 'components/layout/Layout.astro';
+const response = await fetch('http://localhost:8080/api/ping');
+const result = (await response.json()) as Response<string>;
+---
+
+<Layout>
+  <Button />
+  <p>{result.success ? result.data : result.error}</p>
+</Layout>
